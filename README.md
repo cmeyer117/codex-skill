@@ -28,13 +28,13 @@ Configure your OpenAI API key.
 
 ## Supported Models
 
-The 5.6 family is the current generation (ladder: `sol` > `terra` > `luna`). Reasoning-effort levels for 5.6 are `none`, `low`, `medium`, `high`, `xhigh`, `max`.
+Current line: GPT-6.1 Sol, GPT-6.1 Terra, GPT-6 Luna (ladder: `sol` > `terra` > `luna`; Terra needs Codex CLI 0.159.0+). Reasoning-effort levels: `none`, `low`, `medium`, `high`, `xhigh`, `max` (Luna has no Ultra). Context sizes: check current docs.
 
-| Model | Context | Price /1M (in/out) | Best for |
+| Model | Context | Price | Best for |
 |-------|---------|--------------------|----------|
-| `gpt-5.6-sol` | 1.05M (128k out) | $5 / $30 | Flagship — deepest analysis, architecture, long-horizon agentic work (use with `high`/`xhigh`/`max` reasoning). Bare `gpt-5.6` aliases here |
-| `gpt-5.6-terra` | 1.05M (128k out) | $2.50 / $15 | **Default** — most reviews and verification; ~GPT-5.5-flagship quality at roughly half the cost |
-| `gpt-5.6-luna` | 1.05M (128k out) | $1 / $6 | Fast and affordable — quick fact checks, trivial queries |
+| `gpt-6.1-sol` | see current docs | n/a | Flagship — deepest analysis, architecture, long-horizon agentic work (use with `high`/`xhigh`/`max` reasoning). |
+| `gpt-6.1-terra` | see current docs | n/a | Supplied-source writing, visual and app work |
+| `gpt-6-luna` | see current docs | n/a | Fast and affordable — quick fact checks, trivial queries |
 | `gpt-5.5` | 400k | — | Prior frontier model, still selectable via `-m` |
 
 ## Installation
@@ -124,7 +124,7 @@ Or ask Claude:
 > "Can you verify this approach with Codex?"
 > "Get a second opinion on this architecture"
 
-The skill uses `gpt-5.6-terra` by default — capable enough for most reviews and faster than the flagship. For the hardest questions (novel architecture, deep analysis), it escalates to `gpt-5.6-sol` with high reasoning effort. For trivial fact checks, it can drop to `gpt-5.6-luna`.
+The skill picks a model per task from the shared routing policy — capable enough for most reviews and faster than the flagship. For the hardest questions (novel architecture, deep analysis), it escalates to `gpt-6.1-sol` with high reasoning effort. For trivial fact checks, it can drop to `gpt-6-luna`.
 
 ## Example Output
 
